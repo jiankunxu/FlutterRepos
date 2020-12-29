@@ -1,10 +1,6 @@
 import 'dart:convert';
-
-import 'package:common_utils/common_utils.dart';
+import 'package:base_library/base_library.dart';
 import 'package:flustars/flustars.dart';
-import 'package:flutter_wanandroid/common/common.dart';
-import 'package:flutter_wanandroid/data/protocol/models.dart';
-import 'package:flutter_wanandroid/models/models.dart';
 
 class SpHelper {
   /// T 用于区分存储类型
@@ -41,7 +37,7 @@ class SpHelper {
   }
 
   static String getThemeColor() {
-    return SpUtil.getString(Constant.key_theme_color,
+    return SpUtil.getString(BaseConstant.key_theme_color,
         defValue: 'deepPurpleAccent');
   }
 }
