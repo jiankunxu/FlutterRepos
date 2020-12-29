@@ -1,8 +1,8 @@
 import 'package:base_library/src/models/model.dart';
 import 'package:base_library/src/res/index.dart';
 import 'package:base_library/src/util/version_util.dart';
-import 'package:dio/dio.dart';
 import 'package:common_utils/common_utils.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class UpgradeDialog extends StatefulWidget {
@@ -32,24 +32,12 @@ class _UpgradeDialogState extends State<UpgradeDialog> {
   int progress = 0;
   bool isDownload = false;
 
-  OnDownloadProgress progressCallback;
 
   @override
   void initState() {
     super.initState();
     versionModel = widget.versionModel;
 
-    progressCallback = (int count, int total) {
-      progress = ((count / total) * 100).toInt();
-//      LogUtil.e(
-//          "ProgressCallback count: $count, total: $total, _progress: $progress");
-      setState(() {});
-      if (progress == 100) {
-        Navigator.pop(context);
-      }
-    };
-
-    VersionUtil().addListener(progressCallback);
 
 //    versionModel.content = "1.基础库升级 | 2.修复OPPO R15详情页问题 | 3.一些优化~";
     if (ObjectUtil.isNotEmpty(versionModel.content))
@@ -59,7 +47,6 @@ class _UpgradeDialogState extends State<UpgradeDialog> {
   @override
   void dispose() {
     super.dispose();
-    VersionUtil().removeListener(progressCallback);
   }
 
   @override
@@ -153,10 +140,7 @@ class _UpgradeDialogState extends State<UpgradeDialog> {
                                 if (progress >= 0) {
                                   Navigator.pop(context);
                                 } else {
-                                  VersionUtil().downloadApk(
-                                    versionModel.url,
-                                    widget.valueChanged,
-                                  );
+
                                 }
                               },
                               child: Text(
@@ -240,10 +224,6 @@ class _UpgradeDialogState extends State<UpgradeDialog> {
                             Expanded(
                                 child: FlatButton(
                                     onPressed: () {
-                                      VersionUtil().downloadApk(
-                                        versionModel.url,
-                                        widget.valueChanged,
-                                      );
                                       setState(() {
                                         isDownload = true;
                                       });
