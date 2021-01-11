@@ -2,10 +2,12 @@ import 'package:base_library/src/common/common.dart';
 import 'package:flutter/material.dart';
 
 class RouteUtil {
-  static void goMain(BuildContext context) {
-    pushReplacementNamed(context, BaseConstant.routeMain);
+  static void goDriverMain(BuildContext context) {
+    pushReplacementNamed(context, BaseConstant.routeDriverMain);
   }
-
+  static void goConsignorMain(BuildContext context) {
+    pushReplacementNamed(context, BaseConstant.routeConsignorMain);
+  }
   static void goLogin(BuildContext context) {
     pushNamed(context, BaseConstant.routeLogin);
   }
