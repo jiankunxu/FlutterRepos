@@ -8,6 +8,9 @@ class RouteUtil {
   static void goConsignorMain(BuildContext context) {
     pushReplacementNamed(context, BaseConstant.routeConsignorMain);
   }
+  static void goActualMain(BuildContext context) {
+    pushReplacementNamed(context, BaseConstant.routeActualMain);
+  }
   static void goLogin(BuildContext context) {
     pushNamed(context, BaseConstant.routeLogin);
   }
