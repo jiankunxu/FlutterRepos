@@ -12,7 +12,7 @@ class RouteUtil {
     pushReplacementNamed(context, BaseConstant.routeActualMain);
   }
   static void goLogin(BuildContext context) {
-    pushNamed(context, BaseConstant.routeLogin);
+    pushReplacementNamed(context, BaseConstant.routeLogin);
   }
 
   static void pushNamed(BuildContext context, String pageName) {
